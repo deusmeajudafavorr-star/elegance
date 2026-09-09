@@ -2,6 +2,7 @@
 import {useMemo,useState} from 'react'
 import Link from 'next/link'
 import {Search,Play,ShieldCheck,Film,Menu,X} from 'lucide-react'
+import customMovies from '../data/movies.json'
 
 const starter=[
 {id:'all-quiet-on-the-western-front-1930',title:'All Quiet on the Western Front',year:1930,genre:'War',rating:'8.1',desc:'Lewis Milestone’s landmark anti-war drama following young German soldiers during World War I.',embed:''},
@@ -22,7 +23,7 @@ const colors=['#6d5dfc','#e5484d','#16a085','#e67e22','#2980b9','#8e44ad','#d354
 function Poster({movie,index}){return <div className="poster" style={{background:`linear-gradient(145deg,${colors[index%colors.length]},#101018)`}}><span className="posterYear">{movie.year}</span><div><small>OPENFILM</small><strong>{movie.title}</strong></div></div>}
 function Card({movie,index,onPlay}){return <article className="card"><button className="posterBtn" onClick={()=>onPlay(movie)} aria-label={`Watch ${movie.title}`}><Poster movie={movie} index={index}/><span className="play"><Play size={18} fill="currentColor"/></span></button><div className="cardInfo"><h3>{movie.title}</h3><p>{movie.year} • {movie.genre} • ★ {movie.rating}</p></div></article>}
 export default function Home(){
- const [movies,setMovies]=useState(()=>{if(typeof window==='undefined')return starter;try{return [...starter,...JSON.parse(localStorage.getItem('openfilm-movies')||'[]')]}catch{return starter}})
+ const movies=useMemo(()=>[...starter,...customMovies.filter(m=>!starter.some(s=>s.id===m.id))],[ ])
  const [q,setQ]=useState(''); const [genre,setGenre]=useState('All'); const [selected,setSelected]=useState(null); const [menu,setMenu]=useState(false)
  const genres=['All',...Array.from(new Set(movies.map(m=>m.genre)))]
  const filtered=useMemo(()=>movies.filter(m=>(genre==='All'||m.genre===genre)&&`${m.title} ${m.year} ${m.genre}`.toLowerCase().includes(q.toLowerCase())),[movies,q,genre])
@@ -32,6 +33,6 @@ export default function Home(){
  <div className="grid">{filtered.map((m,i)=><Card key={m.id} movie={m} index={i} onPlay={setSelected}/>)}</div>{!filtered.length&&<div className="empty">No movies found. Try another title or genre.</div>}</section>
  <section className="about" id="about"><div><span className="kicker">WHY OPENFILM</span><h2>Classic cinema, without the clutter.</h2></div><p>OpenFilm is built around a simple idea: make legally available classic cinema easier to discover. Every title can include a source provided by the site administrator, with clear information about its availability and era.</p></section>
  <footer><div className="brand"><span>O</span> OPENFILM</div><p>Classic movies for curious viewers.</p><Link href="/admin">Admin</Link></footer>
- {selected&&<div className="modal" onClick={()=>setSelected(null)}><div className="watch" onClick={e=>e.stopPropagation()}><button className="close" onClick={()=>setSelected(null)}><X/></button><div className="video">{selected.embed?<iframe src={selected.embed} title={selected.title} allowFullScreen/>:<div className="noVideo"><Film size={42}/><h3>{selected.title}</h3><p>This title is in the catalog. Add its authorized embed URL in the admin area to enable playback.</p><Link href="/admin">Open Admin</Link></div>}</div><div className="watchMeta"><h2>{selected.title}</h2><p>{selected.year} • {selected.genre} • ★ {selected.rating}</p><p>{selected.desc}</p></div></div></div>}
+ {selected&&<div className="modal" onClick={()=>setSelected(null)}><div className="watch" onClick={e=>e.stopPropagation()}><button className="close" onClick={()=>setSelected(null)}><X/></button><div className="video">{selected.embed?<iframe src={selected.embed} title={selected.title} allowFullScreen/>:<div className="noVideo"><Film size={42}/><h3>{selected.title}</h3><p>This title is in the catalog. Add its authorized embed URL in the admin area to enable playback.</p><Link href="/admin">Open Admin</Link></div>}</div><div className="watchMeta"><h2>{selected.title}</h2><p>{selected.year} • {selected.genre} • ★ {selected.rating}</p><p>{selected.desc||selected.description}</p></div></div></div>}
  </main>
 }
