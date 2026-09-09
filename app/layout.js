@@ -1,5 +1,19 @@
 import './globals.css'
 
-export const metadata={title:{default:'Filmes — Filmes Online Grátis','template':'%s | Filmes'},description:'Encontre filmes clássicos, séries, gêneros e informações sobre onde assistir online.',keywords:['filmes online','filmes grátis','filmes clássicos','assistir filmes online','séries online'],robots:{index:true,follow:true},openGraph:{title:'Filmes — Filmes Online Grátis',description:'Encontre filmes clássicos e séries online.',type:'website'}}
+export const metadata = {
+  title: 'Public Domain Cinema',
+  description: 'Watch movies and series online.',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
+}
 
-export default function RootLayout({children}){return <html lang="pt-BR"><body>{children}</body></html>}
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
