@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Public Domain Cinema',
-  description: 'Watch movies and series online.',
+  title: 'A Filmes Pobreflix',
+  description: 'A Filmes Pobreflix — filmes e séries online.',
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
