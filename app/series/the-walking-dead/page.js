@@ -4,8 +4,8 @@ export const metadata = {
   title: 'Assistir The Walking Dead Online — Temporadas, Episódios e Elenco',
   description: 'Veja informações sobre The Walking Dead, suas 11 temporadas, 177 episódios, elenco, sinopse e guia da série.',
   keywords: ['The Walking Dead', 'assistir The Walking Dead', 'The Walking Dead online', 'The Walking Dead temporadas', 'The Walking Dead episódios', 'The Walking Dead elenco'],
-  alternates: { canonical: '/series/the-walking-dead' },
-  openGraph: { title: 'The Walking Dead — Temporadas, Episódios e Elenco | Filmes', description: 'Informações, temporadas, episódios e elenco de The Walking Dead.', type: 'website' },
+  alternates: { canonical: 'https://filmesdublados-fqz2.vercel.app/series/the-walking-dead' },
+  openGraph: { title: 'The Walking Dead — Temporadas, Episódios e Elenco | Filmes', description: 'Informações, temporadas, episódios e elenco de The Walking Dead.', type: 'website', url: 'https://filmesdublados-fqz2.vercel.app/series/the-walking-dead' },
 }
 
 const poster = 'https://image.tmdb.org/t/p/w342/9lb02gTh4LLB17yAEXFd4C3R4JP.jpg'
