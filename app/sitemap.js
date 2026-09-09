@@ -1,0 +1,2 @@
+const movies=['all-quiet-on-the-western-front-1930','the-blue-angel-1930','animal-crackers-1930','morocco-1930','the-big-trail-1930','the-divorcee-1930','the-dawn-patrol-1930','murder-1930','anna-christie-1930','hells-angels-1930','the-big-house-1930','king-of-jazz-1930','soup-to-nuts-1930']
+export default function sitemap(){return [{url:'https://watchopenfilm.com',lastModified:new Date(),changeFrequency:'weekly',priority:1},{url:'https://watchopenfilm.com/admin',priority:.1},...movies.map(slug=>({url:`https://watchopenfilm.com/movie/${slug}`,priority:.7}))]}
