@@ -1,1 +1,1 @@
-export default function robots(){return {rules:{userAgent:'*',allow:'/'},sitemap:'https://watchopenfilm.com/sitemap.xml'}}
+export default function robots(){return {rules:{userAgent:'*',allow:'/'},sitemap:'https://filmesdublados-fqz2.vercel.app/sitemap.xml'}}
