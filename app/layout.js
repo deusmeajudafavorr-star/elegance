@@ -1,5 +1,5 @@
 import './globals.css'
 
-export const metadata={title:{default:'OpenFilm — Free Classic Movies Online','template':'%s | OpenFilm'},description:'Watch classic movies online for free. Explore a curated collection of public-domain cinema by genre, decade, and title.',keywords:['free classic movies','public domain movies','classic movies online','free movies online','public domain films'],robots:{index:true,follow:true}}
+export const metadata={title:{default:'Filmes — Filmes Online Grátis','template':'%s | Filmes'},description:'Encontre filmes clássicos, séries, gêneros e informações sobre onde assistir online.',keywords:['filmes online','filmes grátis','filmes clássicos','assistir filmes online','séries online'],robots:{index:true,follow:true},openGraph:{title:'Filmes — Filmes Online Grátis',description:'Encontre filmes clássicos e séries online.',type:'website'}}
 
-export default function RootLayout({children}){return <html lang="en"><body>{children}</body></html>}
+export default function RootLayout({children}){return <html lang="pt-BR"><body>{children}</body></html>}
