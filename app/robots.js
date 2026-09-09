@@ -1,1 +1,1 @@
-export default function robots(){return {rules:{userAgent:'*',allow:'/'},sitemap:'https://openfilm.example/sitemap.xml'}}
+export default function robots(){return {rules:{userAgent:'*',allow:'/'},sitemap:'https://watchopenfilm.com/sitemap.xml'}}
